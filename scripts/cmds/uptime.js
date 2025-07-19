@@ -70,7 +70,7 @@ module.exports = {
 
 📡 𝗣𝗘𝗥𝗙𝗢𝗥𝗠𝗔𝗡𝗖𝗘
 ⚡ Ping: ${ping}% ms
-🤖 Bot: Melisa
+🤖 Bot: ッ🦋 - BRISTY HUBBY😘😝- 
 🔖 Version: v1.0
 
 🖥️ 𝗦𝗬𝗦𝗧𝗘𝗠 𝗦𝗧𝗔𝗧𝗨𝗦
