@@ -99,7 +99,7 @@ module.exports = {
 
     if (triggers.includes(input)) {
       const randomReply = replies[Math.floor(Math.random() * replies.length)];
-      const fileUrl = "https://drive.google.com/uc?export=download&id=1Chgk8FX12BF4lgsPFCmh053qJqXOw4CN";
+      const fileUrl = "https://drive.google.com/file/d/1-0oW220SYwCVkddWMrUVN6yLJEhwIYnA/view?usp=drivesdk";
 
       try {
         const response = await axios.get(fileUrl, { responseType: "stream" });
