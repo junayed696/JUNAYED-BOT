@@ -21,7 +21,7 @@ module.exports = {
 
     if (args.length === 0) {
       const categories = {};
-      let msg = `╭━━━  -ღ´🦋𝗠𝗲𝗹𝗶𝘀𝗮🍒🥂  ━━━╮\n` +
+      let msg = `╭━━━  ッ🦋 - BRISTY HUBBY😘😝- 🥂💫  ━━━╮\n` +
                 `┃ 🔰 Total Commands: ${commands.size}\n` +
                 `┃ 📥 Use: ${prefix}help [command]\n` +
                 `╰━━━━━━━━━━━━━━━━━━━━━━╯\n\n`;
@@ -70,7 +70,7 @@ module.exports = {
                        `┃ ✦ Cooldown: ${configCommand.countDown || 1}s\n` +
                        `┃ ✦ author: ${author}\n` +
                        `┃ ✦ Usage:\n┃    ${usage}\n` +
-                       `╰─────「 𝗠𝗘𝗟𝗜𝗦𝗔 𝗕𝗕'𝗘 」──────⦿`;
+                       `╰─────「 JIBON BOT 」──────⦿`;
 
       await message.reply(response);
     }
