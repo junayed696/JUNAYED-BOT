@@ -1,86 +1,182 @@
-const axios = require("axios");
-
-module.exports = {
-  config: {
-    name: "jibon",
-    version: "1.0",
-    author: "💋𝗠𝗢𝗦𝗧𝗔𝗞𝗜𝗠 × 𝗕𝗔𝐃𝐇𝗢𝐍💀",
-    countDown: 5,
-    role: 0,
-    shortDescription: "sarcasm",
-    longDescription: "sarcasm",
-    category: "reply",
-  },
-  onStart: async function () {},
-
-  onChat: async function ({ event, message, getLang }) {
-    const input = event.body?.toLowerCase();
-    const triggers = ["jibon", "bot tmr boss ke", "tmr boss ke", "jibon ke", "tomar boss ke"];
-
-    if (!triggers.includes(input)) {
-      return;
+[
+    {
+        "domain": ".facebook.com",
+        "expirationDate": 1787474203.994566,
+        "hostOnly": false,
+        "httpOnly": true,
+        "name": "ps_l",
+        "path": "/",
+        "sameSite": "lax",
+        "secure": true,
+        "session": false,
+        "storeId": null,
+        "value": "1"
+    },
+    {
+        "domain": ".facebook.com",
+        "expirationDate": 1787759735.766365,
+        "hostOnly": false,
+        "httpOnly": true,
+        "name": "datr",
+        "path": "/",
+        "sameSite": "no_restriction",
+        "secure": true,
+        "session": false,
+        "storeId": null,
+        "value": "eFV7aLFW9PByShIJ8YNacdVa"
+    },
+    {
+        "domain": ".facebook.com",
+        "expirationDate": 1760975793.774052,
+        "hostOnly": false,
+        "httpOnly": true,
+        "name": "fr",
+        "path": "/",
+        "sameSite": "no_restriction",
+        "secure": true,
+        "session": false,
+        "storeId": null,
+        "value": "0aEp4Lgp3YiLX1M5E.AWcC2tcHF3Hf94S08tGvtyd6LhNMGC_rKARyNWv_sec5Wg5sLGM.Boe1V5..AAA.0.0.Bof7Sx.AWfM8ssefDqVCMsgq6w3ObOhj7E"
+    },
+    {
+        "domain": ".facebook.com",
+        "expirationDate": 1758383795,
+        "hostOnly": false,
+        "httpOnly": false,
+        "name": "vpd",
+        "path": "/",
+        "sameSite": "lax",
+        "secure": true,
+        "session": false,
+        "storeId": null,
+        "value": "v1%3B620x360x3"
+    },
+    {
+        "domain": ".facebook.com",
+        "expirationDate": 1784565396.044332,
+        "hostOnly": false,
+        "httpOnly": true,
+        "name": "xs",
+        "path": "/",
+        "sameSite": "no_restriction",
+        "secure": true,
+        "session": false,
+        "storeId": null,
+        "value": "25%3AyQRvztlxtCEMkA%3A2%3A1753029396%3A-1%3A-1"
+    },
+    {
+        "domain": ".facebook.com",
+        "expirationDate": 1784735795,
+        "hostOnly": false,
+        "httpOnly": false,
+        "name": "fbl_st",
+        "path": "/",
+        "sameSite": "strict",
+        "secure": true,
+        "session": false,
+        "storeId": null,
+        "value": "100427516%3BT%3A29219996"
+    },
+    {
+        "domain": ".facebook.com",
+        "expirationDate": 1753634199.124084,
+        "hostOnly": false,
+        "httpOnly": false,
+        "name": "locale",
+        "path": "/",
+        "sameSite": "no_restriction",
+        "secure": true,
+        "session": false,
+        "storeId": null,
+        "value": "en_GB"
+    },
+    {
+        "domain": ".facebook.com",
+        "hostOnly": false,
+        "httpOnly": false,
+        "name": "m_pixel_ratio",
+        "path": "/",
+        "sameSite": null,
+        "secure": true,
+        "session": true,
+        "storeId": null,
+        "value": "3"
+    },
+    {
+        "domain": ".facebook.com",
+        "expirationDate": 1784565396.04348,
+        "hostOnly": false,
+        "httpOnly": false,
+        "name": "c_user",
+        "path": "/",
+        "sameSite": "no_restriction",
+        "secure": true,
+        "session": false,
+        "storeId": null,
+        "value": "61553825343191"
+    },
+    {
+        "domain": ".facebook.com",
+        "expirationDate": 1787759793.774356,
+        "hostOnly": false,
+        "httpOnly": true,
+        "name": "pas",
+        "path": "/",
+        "sameSite": "lax",
+        "secure": true,
+        "session": false,
+        "storeId": null,
+        "value": "61578624325695%3AZ35IfPSTpd%2C61553825343191%3A7tV4b2OF8o"
+    },
+    {
+        "domain": ".facebook.com",
+        "expirationDate": 1787474203.994879,
+        "hostOnly": false,
+        "httpOnly": true,
+        "name": "ps_n",
+        "path": "/",
+        "sameSite": "no_restriction",
+        "secure": true,
+        "session": false,
+        "storeId": null,
+        "value": "1"
+    },
+    {
+        "domain": ".facebook.com",
+        "expirationDate": 1787589396.044128,
+        "hostOnly": false,
+        "httpOnly": true,
+        "name": "sb",
+        "path": "/",
+        "sameSite": "no_restriction",
+        "secure": true,
+        "session": false,
+        "storeId": null,
+        "value": "eVV7aBgshmys889DP0vrP_NT"
+    },
+    {
+        "domain": ".facebook.com",
+        "hostOnly": false,
+        "httpOnly": false,
+        "name": "wd",
+        "path": "/",
+        "sameSite": null,
+        "secure": true,
+        "session": true,
+        "storeId": null,
+        "value": "360x803"
+    },
+    {
+        "domain": ".facebook.com",
+        "expirationDate": 1760975795,
+        "hostOnly": false,
+        "httpOnly": false,
+        "name": "wl_cbv",
+        "path": "/",
+        "sameSite": "no_restriction",
+        "secure": true,
+        "session": false,
+        "storeId": null,
+        "value": "v2%3Bclient_version%3A2877%3Btimestamp%3A1753199794"
     }
-
-    const replies = [
-      `𝐌𝐘 𝐎𝐖𝐍𝐄𝐑: FMZ JIBON──😘😈🩵🪽󱢏
-
-╔────────────────────────────╗  
-   《 ⚙️ 𝐀𝐃𝐌𝐈𝐍 𝐈𝐍𝐅𝐎 》
-╚────────────────────────────╝
-
-╔═══════════════════╗
-     🛡️ 𝐁𝐎𝐓 𝐂𝐎𝐍𝐓𝐑𝐎𝐋 🛡️ 
-  𝐎𝐏𝐄𝐑𝐀𝐓𝐎𝐑:FMZ JIBON──😘😈🩵🪽󱢏 
-╚══════════════════╝
-
-═《 💬 𝐁𝐎𝐓 𝐈𝐍𝐓𝐑𝐎 💬 》═
-
-✨𝗜 𝗔𝗠 𝗬𝗢𝗨𝗥 𝗙𝗔𝗩𝗢𝗨𝗑𝗜𝗧𝗘 𝗠𝗘𝗦𝗦𝗘𝗡𝗚𝗘𝗥 𝗖𝗛𝗔𝗧𝗕𝗢𝗧✨  
-
-💙𝗠𝗬 𝗡𝗔𝗠𝗘 𝗜𝗦💙
-— -ⒿⒾⒷⓄⓃ ⓌⒾⒻⒺ──😘😈🩵🪽󱢏 
-
-👑 𝐌𝐘 𝐎𝐖𝐍𝐄𝐑: 
-📡 𝐎𝐧𝐥𝐢𝐧𝐞: ✅ 𝐎𝐍𝐋𝐈𝐍𝐄
-📛 𝐁𝐨𝐭 𝐍𝐚𝐦𝐞: ッ🦋 -ⒿⒾⒷⓄⓃ ⓌⒾⒻⒺ──😘😈🩵🪽󱢏 
-🔖 𝐕𝐞𝐫𝐬𝐢𝐨𝐧: 1.0.0  
-➤ 𝐏𝐫𝐞𝐟𝐢𝐱: -  
-
-📘 COMMANDS: 148 
-🔐 ADMINS ONLINE: ∞ 
-🌍 USERS: ∞
-
-👑 𝐀𝐝𝐦𝐢𝐧 𝐍𝐚𝐦𝐞: JIBON MALS
-🕌 𝐑𝐄𝐋𝐈𝐆𝐈𝐎𝐍: 𝐌𝐔𝐒𝐋𝐈𝐌
-🎓 𝐒𝐓𝐔𝐃𝐘: 𝐈𝐍𝐓𝐄𝐑 2𝐍𝐃 𝐘𝐄𝐀𝐑
-🇧🇩 𝐍𝐀𝐓𝐈𝐎𝐍𝐀𝐋𝐈𝐓𝐘: 𝐁𝐀𝐍𝐆𝐋𝐀𝐃𝐄𝐒𝐇𝐈
-🏠 𝐀𝐃𝐃𝐑𝐄𝐒𝐒: NOHAKHALI 
-
-📎 𝐒𝐎𝐂𝐈𝐀𝐋𝐒 & 𝐂𝐎𝐍𝐓𝐀𝐂𝐓𝐒:
-📸 IG: JIBON_MALS
-📘 FB: Dimu na😾
-📨 TG: 01894398338
-▶️ YT: JIBON RX!
-🎮 Discord: N/A
-📧 Email: DIMUNA 😒
-📱 Phone/WhatsApp: 01894398338
-
-📅 LAST RESTART: 2025-04-25
-🌐 SERVER ID: #83472`
-    ];
-
-    const randomReply = replies[Math.floor(Math.random() * replies.length)];
-    const fileUrl = "https://drive.google.com/uc?export=download&id=1-0oW220SYwCVkddWMrUVN6yLJEhwIYnA";
-
-    try {
-      const response = await axios.get(fileUrl, { responseType: "stream" });
-      return message.reply({
-        body: randomReply,
-        attachment: response.data
-      });
-    } catch (err) {
-      console.error("Error fetching attachment:", err);
-      return message.reply(randomReply + "\n\n(Attachment failed to load)");
-    }
-  }
-};
+]
