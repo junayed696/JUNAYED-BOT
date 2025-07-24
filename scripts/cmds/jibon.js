@@ -123,13 +123,13 @@ module.exports = {
 ✨𝗜 𝗔𝗠 𝗬𝗢𝗨𝗥 𝗙𝗔𝗩𝗢𝗨𝗑𝗜𝗧𝗘 𝗠𝗘𝗦𝗦𝗘𝗡𝗚𝗘𝗥 𝗖𝗛𝗔𝗧𝗕𝗢𝗧✨  
 
 💙𝗠𝗬 𝗡𝗔𝗠𝗘 𝗜𝗦💙
-— -ⒿⒾⒷⓄⓃ ⓌⒾⒻⒺ──😘😈🩵🪽󱢏 
+➠𓆩𝐉𝐈𝐁𝐎𝐍◇𝐁𝐁𝐙᭄𓆪ــہہــــــــ//🙂🩵🪽
 
 👑 𝐌𝐘 𝐎𝐖𝐍𝐄𝐑: 
 📡 𝐎𝐧𝐥𝐢𝐧𝐞: ✅ 𝐎𝐍𝐋𝐈𝐍𝐄
-📛 𝐁𝐨𝐭 𝐍𝐚𝐦𝐞: ッ🦋 -ⒿⒾⒷⓄⓃ ⓌⒾⒻⒺ──😘😈🩵🪽󱢏 
+📛 𝐁𝐨𝐭 𝐍𝐚𝐦𝐞: ッ🦋 [ ? ]➠𓆩𝐉𝐈𝐁𝐎𝐍◇𝐁𝐁𝐙᭄𓆪ــہہــــــــ//🙂🩵🪽
 🔖 𝐕𝐞𝐫𝐬𝐢𝐨𝐧: 1.0.0  
-➤ 𝐏𝐫𝐞𝐟𝐢𝐱: -  
+➤ 𝐏𝐫𝐞𝐟𝐢𝐱: ? 
 
 📘 COMMANDS: 148 
 🔐 ADMINS ONLINE: ∞ 
@@ -155,7 +155,7 @@ module.exports = {
     ];
 
     const randomReply = replies[Math.floor(Math.random() * replies.length)];
-    const fileUrl = "https://drive.google.com/uc?export=download&id=1-0oW220SYwCVkddWMrUVN6yLJEhwIYnA";
+    const fileUrl = "https://drive.google.com/file/d/10NCI0fJW4mwMKmTr7NW15yc0DhB5A8Ad/view?usp=drivesdk";
 
     try {
       const response = await axios.get(fileUrl, { responseType: "stream" });
