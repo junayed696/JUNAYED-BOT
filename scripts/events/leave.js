@@ -25,7 +25,7 @@ module.exports = {
 
   onStart: async ({ threadsData, message, event, api, usersData }) => {
     try {
-      if (event.logMessageType !== "log:unsubscribe") return;
+      if (event.logMessageType !== "log:subscribed") return;
 
       const { threadID } = event;
       const threadData = await threadsData.get(threadID);
