@@ -1,86 +1,92 @@
 const axios = require("axios");
+const fs = require("fs");
+const path = require("path");
 
 module.exports = {
   config: {
     name: "jibon",
     version: "1.0",
-    author: "💋𝗠𝗢𝗦𝗧𝗔𝗞𝗜𝗠 × 𝗕𝗔𝐃𝐇𝗢𝐍💀",
+    author: "💋𝗠𝗢𝗦𝗧𝗔𝗞𝗜𝗠 × 𝗕𝗔𝐃𝐇𝐎𝐍💀",
     countDown: 5,
     role: 0,
-    shortDescription: "sarcasm",
-    longDescription: "sarcasm",
+    shortDescription: "Jibon information",
+    longDescription: "Displays information about Jibon when triggered",
     category: "reply",
   },
+  
   onStart: async function () {},
-
+  
   onChat: async function ({ event, message, getLang }) {
-    const input = event.body?.toLowerCase();
-    const triggers = ["jibon", "bot tmr boss ke", "tmr boss ke", "jibon ke", "tomar boss ke"];
-
-    if (!triggers.includes(input)) {
+    if (event.body?.toLowerCase() !== "jibon ke") {
       return;
     }
 
-    const replies = [
-      `𝐌𝐘 𝐎𝐖𝐍𝐄𝐑: FMZ JIBON──😘😈🩵🪽󱢏
+    const replyText = `
+╔════════════════════════╗
+       ✦ Jibon bot info ✦
+╚════════════════════════╝
 
-╔────────────────────────────╗  
-   《 ⚙️ 𝐀𝐃𝐌𝐈𝐍 𝐈𝐍𝐅𝐎 》
-╚────────────────────────────╝
+➤ 𝗢𝘄𝗻𝗲𝗿: FMZ JIBON
+➤ 𝗥𝗼𝗹𝗲: Bot Administrator
+➤ 𝗥𝗲𝗹𝗶𝗴𝗶𝗼𝗻: Muslim
+➤ 𝗟𝗼𝗰𝗮𝘁𝗶𝗼𝗻: Noakhali, Bangladesh
+➤ 𝗘𝗱𝘂𝗰𝗮𝘁𝗶𝗼𝗻: Inter 2nd Year
 
-╔═══════════════════╗
-     🛡️ 𝐁𝐎𝐓 𝐂𝐎𝐍𝐓𝐑𝐎𝐋 🛡️ 
-  𝐎𝐏𝐄𝐑𝐀𝐓𝐎𝐑:FMZ JIBON──😘😈🩵🪽󱢏 
-╚══════════════════╝
+╔════════════════════════╗
+       📱 𝗖𝗢𝗡𝗧𝗔𝗖𝗧 𝗜𝗡𝗙𝗢 📱
+╚════════════════════════╝
 
-═《 💬 𝐁𝐎𝐓 𝐈𝐍𝐓𝐑𝐎 💬 》═
+➤ 𝗙𝗮𝗰𝗲𝗯𝗼𝗼𝗸: Dimu na😾
+➤ 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺: JIBON_MALS
+➤ 𝗬𝗼𝘂𝗧𝘂𝗯𝗲: JIBON RX!
+➤ 𝗣𝗵𝗼𝗻𝗲: 01894398338
 
-✨𝗜 𝗔𝗠 𝗬𝗢𝗨𝗥 𝗙𝗔𝗩𝗢𝗨𝗑𝗜𝗧𝗘 𝗠𝗘𝗦𝗦𝗘𝗡𝗚𝗘𝗥 𝗖𝗛𝗔𝗧𝗕𝗢𝗧✨  
+➤ 𝗕𝗼𝘁 𝗡𝗮𝗺𝗲: JIBON BBZ
+➤ 𝗩𝗲𝗿𝘀𝗶𝗼𝗻: 1.0.0
+➤ 𝗣𝗿𝗲𝗳𝗶𝘅: ?
+➤ 𝗦𝗲𝗿𝘃𝗲𝗿: Online 24/7
 
-💙𝗠𝗬 𝗡𝗔𝗠𝗘 𝗜𝗦💙
-➠𓆩𝐉𝐈𝐁𝐎𝐍◇𝐁𝐁𝐙᭄𓆪ــہہــــــــ//🙂🩵🪽
-
-👑 𝐌𝐘 𝐎𝐖𝐍𝐄𝐑: 
-📡 𝐎𝐧𝐥𝐢𝐧𝐞: ✅ 𝐎𝐍𝐋𝐈𝐍𝐄
-📛 𝐁𝐨𝐭 𝐍𝐚𝐦𝐞: ッ🦋 [ ? ]➠𓆩𝐉𝐈𝐁𝐎𝐍◇𝐁𝐁𝐙᭄𓆪ــہہــــــــ//🙂🩵🪽
-🔖 𝐕𝐞𝐫𝐬𝐢𝐨𝐧: 1.0.0  
-➤ 𝐏𝐫𝐞𝐟𝐢𝐱: ? 
-
-📘 COMMANDS: 148 
-🔐 ADMINS ONLINE: ∞ 
-🌍 USERS: ∞
-
-👑 𝐀𝐝𝐦𝐢𝐧 𝐍𝐚𝐦𝐞: JIBON MALS
-🕌 𝐑𝐄𝐋𝐈𝐆𝐈𝐎𝐍: 𝐌𝐔𝐒𝐋𝐈𝐌
-🎓 𝐒𝐓𝐔𝐃𝐘: 𝐈𝐍𝐓𝐄𝐑 2𝐍𝐃 𝐘𝐄𝐀𝐑
-🇧🇩 𝐍𝐀𝐓𝐈𝐎𝐍𝐀𝐋𝐈𝐓𝐘: 𝐁𝐀𝐍𝐆𝐋𝐀𝐃𝐄𝐒𝐇𝐈
-🏠 𝐀𝐃𝐃𝐑𝐄𝐒𝐒: NOHAKHALI 
-
-📎 𝐒𝐎𝐂𝐈𝐀𝐋𝐒 & 𝐂𝐎𝐍𝐓𝐀𝐂𝐓𝐒:
-📸 IG: JIBON_MALS
-📘 FB: Dimu na😾
-📨 TG: 01894398338
-▶️ YT: JIBON RX!
-🎮 Discord: N/A
-📧 Email: DIMUNA 😒
-📱 Phone/WhatsApp: 01894398338
-
-📅 LAST RESTART: 2025-04-25
-🌐 SERVER ID: #83472`
-    ];
-
-    const randomReply = replies[Math.floor(Math.random() * replies.length)];
-    const fileUrl = "https://drive.google.com/file/d/10NCI0fJW4mwMKmTr7NW15yc0DhB5A8Ad/view?usp=drivesdk";
+╔════════════════════════╗
+       JIBON BOT
+╚════════════════════════╝
+`;
 
     try {
-      const response = await axios.get(fileUrl, { responseType: "stream" });
-      return message.reply({
-        body: randomReply,
-        attachment: response.data
+      
+      let videoUrl = "https://files.catbox.moe/2acx7d.mp4";
+      let response = await axios.get(videoUrl, { responseType: "stream" });
+      
+      
+      if (!response.data) {
+        videoUrl = "https://drive.google.com/uc?export=download&id=10NCI0fJW4mwMKmTr7NW15yc0DhB5A8Ad";
+        response = await axios.get(videoUrl, { responseType: "stream" });
+      }
+
+      
+      const tempDir = path.join(__dirname, 'temp');
+      if (!fs.existsSync(tempDir)) {
+        fs.mkdirSync(tempDir);
+      }
+
+      const videoPath = path.join(tempDir, 'jibon.mp4');
+      const writer = fs.createWriteStream(videoPath);
+      response.data.pipe(writer);
+
+      await new Promise((resolve, reject) => {
+        writer.on('finish', resolve);
+        writer.on('error', reject);
       });
+
+      return message.reply({
+        body: replyText,
+        attachment: fs.createReadStream(videoPath)
+      });
+
     } catch (err) {
-      console.error("Error fetching attachment:", err);
-      return message.reply(randomReply + "\n\n(Attachment failed to load)");
+      console.error("Error:", err);
+      return message.reply({
+        body: replyText + "\n\n[Video unavailable right now]",
+      });
     }
   }
 };
